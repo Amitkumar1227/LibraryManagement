@@ -72,7 +72,7 @@ public  class LibraryController {
     }
 
     @GetMapping("/available")
-    public ResponseEntity<List<Book>> listAvailableBooks() {
+    public ResponseEntity<List<Book>> listAvailableBooks() { 
          List<Book> listAvailableBooks = liabraryService.listAvailableBooks();
          return new ResponseEntity<List<Book>>(listAvailableBooks, HttpStatus.FOUND);
     }
@@ -87,15 +87,13 @@ public  class LibraryController {
             // Log the specific IllegalArgumentException and return a bad request response
             logger.error("An error occurred: " + e.getMessage());
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
+        } catch (Exception e) { 
             // Log any other unexpected exceptions and return an internal server error response
             logger.error("An unexpected error occurred while checking availability: " + e.getMessage(), e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     	
-//    	 boolean isAvailable = liabraryService.availability(isbn);
-//         return new ResponseEntity<Boolean>(isAvailable, HttpStatus.OK);
-//    	
+    	
     	}
     
     @PostMapping("/addDepartment") 
